@@ -2,7 +2,7 @@ import java.util.Date;
 
 public class Customer {
     private int id;
-    public String name;
+    private String name;
     private String password;
     private String username;
     private String email;
@@ -13,20 +13,23 @@ public class Customer {
     private boolean gender;
     private int nationalId;
     private String nationality;
+    private String lastname;
+    private String companyNAme;
+    private boolean type;
 
-    public Customer(int id, String name, String password, String email, String username, int phoneNumber, String address, int age, Date dateOfBirth, boolean gender, int nationalId, String nationality) {
+    public Customer(int id, String name, String password, String email, String username, int phoneNumber, String address, int age, Date dateOfBirth, boolean gender, String lastname, String companyNAme , boolean type) {
         this.id = id;
         this.name = name;
+        this.lastname = lastname;
         this.password = password;
         this.email = email;
         this.username = username;
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.age = age;
-        this.dateOfBirth = dateOfBirth;
         this.gender = gender;
-        this.nationalId = nationalId;
-        this.nationality = nationality;
+        this.companyNAme = companyNAme;
+        this.type = type;
     }
 
     public int getId() {
@@ -69,12 +72,28 @@ public class Customer {
         return gender;
     }
 
-    public int getNationalId() {
-        return nationalId;
-    }
+    public boolean getType() { return type;}
 
-    public String getNationality() {
-        return nationality;
+    public boolean addCustomer()
+    {
+        String gender , type;
+        if(this.isGender())
+        {
+            gender="woman";
+        }else gender="man";
+        if(this.getType())
+        {
+            type="yes";
+        }else type="no";
+        return DataBase.insert("insert into custumer(Cid,name,lastname,password,username,email,phoneNumber,address,age,gender,homeCustomer,compName) vlues ( "+id+" , '"+name+"' , '"+lastname+"' , '"+password+"' , '"+username+"' , '"+email+"' , '"+phoneNumber+"' , '"+address+"' , "+Integer.toString(age)+" , '"+gender+"' , '"+type+"' , '"+companyNAme+"' );"  );
+    }
+    public boolean editCustomer()
+    {
+        return DataBase.edit("delete from customer where cid = "+id+";","insert into custumer(Cid,name,lastname,password,username,email,phoneNumber,address,age,gender,homeCustomer,compName) vlues ( "+id+" , '"+name+"' , '"+lastname+"' , '"+password+"' , '"+username+"' , '"+email+"' , '"+phoneNumber+"' , '"+address+"' , "+Integer.toString(age)+" , '"+gender+"' , '"+type+"' , '"+companyNAme+"' );" );
+    }
+    public boolean delete()
+    {
+        return DataBase.deleting("delete from customer where cid = "+id+";");
     }
 
 }

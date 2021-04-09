@@ -17,4 +17,12 @@ public class Tailor extends Employee{
     {
 
     }
+    public boolean addTailor(String tailoringCertificateCode)
+    {
+        return super.addEmployee("tailor",tailoringCertificateCode);
+    }
+    public boolean editTailor(String tailoringCertificateCode)
+    {
+        return super.addEmployee("tailor",tailoringCertificateCode);
+    }
 }

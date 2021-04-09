@@ -12,4 +12,13 @@ public class WharehouseKeeper extends Employee{
     }
     public void showLoadsInfo(){
     }
+
+    public boolean addWharehouseKeeper()
+    {
+        return super.addEmployee("wharehouseKeeper","");
+    }
+    public boolean editWharehouseKeeper()
+    {
+        return super.addEmployee("wharehouseKeeper","");
+    }
 }

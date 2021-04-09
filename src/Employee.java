@@ -61,4 +61,25 @@ public class Employee {
     {
         return  gender;
     }
+    public boolean addEmployee(String post,String certificate)
+    {
+        String gender ;
+        if(this.isGender())
+        {
+            gender="woman";
+        }else gender="man";
+        String query = "insert into employee(Nid ,name ,lastname ,phoneNumber ,age ,gender ,address ,emailAddress ,post ,certificateCode ) values ( '"+Integer.parseInt(Nid)+"' , '"+name+"' , '"+lastname+"' ,' "+phoneNumber+"' , "+age+", '"+gender+"' , '"+address+"' , '"+emailAddress+"' , '"+post+"' , '"+certificate+"' );";
+        return DataBase.addUser(query);
+    }
+    public boolean editEmployee(String post,String certificate)
+    {
+        String gender ;
+
+        if(this.isGender())
+        {
+            gender="woman";
+        }else gender="man";
+        String query = "insert into employee(Nid ,name ,lastname ,phoneNumber ,age ,gender ,address ,emailAddress ,post ,certificateCode ) values ("+Integer.parseInt(Nid)+", '"+name+"' , '"+lastname+"' , '"+phoneNumber+"' ,"+age+", '"+gender+"' , '"+address+"' , '"+emailAddress+"' , '"+post+"' , '"+certificate+"' );";
+        return DataBase.editUser(this.Nid,"employee","Nid",query);
+    }
 }

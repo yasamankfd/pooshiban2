@@ -7,4 +7,12 @@ public class Designer extends  Employee{
     }
     //undone
     public String getDesignerCertificateCode(){ return designerCertificateCode; }
+    public boolean addDesigner(String designerCertificateCode)
+    {
+        return super.addEmployee("designer",designerCertificateCode);
+    }
+    public boolean editDesigner(String designerCertificateCode)
+    {
+        return super.addEmployee("designer",designerCertificateCode);
+    }
 }

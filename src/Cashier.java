@@ -4,4 +4,13 @@ public class Cashier extends Employee {
     {
         super(name,lastname,address,Nid,phoneNumber,emailAddress,age,gender);
     }
+    public boolean addCashier()
+    {
+        return super.addEmployee("cashier","");
+    }
+    public boolean editCashier()
+    {
+        return super.addEmployee("cashier","");
+    }
+
 }

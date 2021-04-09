@@ -9,4 +9,13 @@ public class Acountant extends Employee {
     {
         return accountantCertificateCode;
     }
+    public boolean addAccountant( String accountantCertificateCode)
+    {
+        return super.addEmployee("accountant",accountantCertificateCode);
+    }
+    public boolean editAccountant( String accountantCertificateCode)
+    {
+        return super.editEmployee("accountant",accountantCertificateCode);
+    }
+
 }

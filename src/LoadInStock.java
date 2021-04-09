@@ -25,5 +25,17 @@ public class LoadInStock {
     public int getWeight(){ return weight; }
     public int getValue(){ return value; }
 
+    public boolean addLoad()
+    {
+        return DataBase.insert("insert into loadInStock (code,DATE,TIME,content,weight,value) values ( "+code+" , '"+entryDate.toString()+"' , '"+entryTime.toString()+"' , '"+content+"' , "+weight+" , "+value+" );");
+    }
+    public boolean editLoad()
+    {
+        return DataBase.edit("delete from loadInStock where code = "+code+" ;","insert into loadInStock (code,DATE,TIME,content,weight,value) values ( "+code+" , '"+entryDate.toString()+"' , '"+entryTime.toString()+"' , '"+content+"' , "+weight+" , "+value+" );");
+    }
+    public boolean delete()
+    {
+        return DataBase.deleting("delete from loadInStock where code = "+code+" ;");
+    }
 }
 

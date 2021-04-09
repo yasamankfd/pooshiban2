@@ -20,9 +20,9 @@ public class HeadMaster {
         this.emailAddress = emailAddress;
         this.phoneNumber = phoneNumber;
         this.HeadMasterCode = headMasterCode;
-        this.degree = degree;
+        //this.degree = degree;
     }
-    public void EditInfo(String name,String lastname,String address,String Nid,String phoneNumber,String emailAddress,int age,boolean gender,String headMasterCode , String degree)
+    public void EditInfo(String name,String lastname,String address,String Nid,String phoneNumber,String emailAddress,int age,boolean gender,String headMasterCode )
     {
         this.name = name;
         this.lastname = lastname;
@@ -33,7 +33,6 @@ public class HeadMaster {
         this.emailAddress = emailAddress;
         this.phoneNumber = phoneNumber;
         this.HeadMasterCode = headMasterCode;
-        this.degree = degree;
     }
     public String getName()
     {
@@ -67,12 +66,33 @@ public class HeadMaster {
     {
         return  gender;
     }
-    public String getDegree()
-    {
-        return degree;
-    }
+    //public String getDegree()
+//    {
+//        return degree;
+//    }
     public String getHeadMasterCode()
     {
         return HeadMasterCode;
+    }
+    public boolean addHeadmaster()
+    {
+        String gender;
+        if(this.isGender())
+        {
+            gender="woman";
+        }else gender="man";
+        String query = "insert into employee(Nid ,name ,lastname ,phoneNumber ,age ,gender ,address ,emailAddress ,post ,certificateCode ) values ("+Integer.parseInt(Nid)+","+name+","+lastname+","+phoneNumber+","+age+","+gender+","+address+","+emailAddress+","+"'head master'"+","+addHeadmaster()+");";
+        return DataBase.addUser(query);
+    }
+    public boolean editHeadmaster()
+    {
+        String gender ;
+
+        if(this.isGender())
+        {
+            gender="woman";
+        }else gender="man";
+        String query = "insert into employee(Nid ,name ,lastname ,phoneNumber ,age ,gender ,address ,emailAddress ,post ,certificateCode ) values ("+Integer.parseInt(Nid)+", '"+name+"' , '"+lastname+"' , '"+phoneNumber+"' ,"+age+", '"+gender+"' , '"+address+"' , '"+emailAddress+"' ,"+"'head master'"+", '"+getHeadMasterCode()+"' );";
+        return DataBase.editUser(this.Nid,"employee","Nid",query);
     }
 }

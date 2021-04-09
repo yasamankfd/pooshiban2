@@ -4,4 +4,13 @@ public class Janitor extends Employee{
     {
         super(name,lastname,address,Nid,phoneNumber,emailAddress,age,gender);
     }
+
+    public boolean addJanitor()
+    {
+        return super.addEmployee("janitor","");
+    }
+    public boolean editJanitor()
+    {
+        return super.addEmployee("janitor","");
+    }
 }

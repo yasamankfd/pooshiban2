@@ -4,4 +4,12 @@ public class SalesUnitManager extends Employee{
         super(name, lastname, address, Nid, phoneNumber, emailAddress, age, gender);
 
     }
+    public boolean addsalesManager()
+    {
+        return super.addEmployee("sales unit manager","");
+    }
+    public boolean editsalesManager()
+    {
+        return super.addEmployee("sales unit manager","");
+    }
     }
